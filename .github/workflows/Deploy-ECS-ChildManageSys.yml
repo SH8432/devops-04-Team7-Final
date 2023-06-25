@@ -27,9 +27,10 @@
 name: Deploy to Amazon ECS-childmanagesys
 
 on:
-  pull_request:
+  push:
+    branches: [ "IaC" ]
     paths:
-      - 'childmanagesys/**'
+      - "ChildManageSys/**"
 
 env:
   AWS_REGION: ap-northeast-2                  # set this to your preferred AWS region, e.g. us-west-1
@@ -38,9 +39,9 @@ env:
   ECS_SERVICE: final-project-was-service                 # set this to your Amazon ECS service name
   ECS_CLUSTER: final-project-childmanagesys-cluster      # set this to your Amazon ECS cluster name
   #terraform으로 ecs구축 후 task_definition의 json 파일 가져와서 수정 해야함
-  ECS_TASK_DEFINITION:  # set this to the path to your Amazon ECS task definition
+  ECS_TASK_DEFINITION: ./ChildManageSys/final-project-ecs-task-definition-revision31.json  # set this to the path to your Amazon ECS task definition
                                                # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: was-container          # set this to the name of the container in the
+  CONTAINER_NAME: final-project-ecs-task          # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
 
 permissions:
@@ -67,16 +68,31 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
+    - name: Get SQS ARN
+      id: get-sqs-arn
+      run: |
+        queue_name=IntegrateEventQueue
+        queue_url=$(aws sqs get-queue-url --queue-name "$queue_name" --query 'QueueUrl' --output text)
+        queue_arn=$(aws sqs get-queue-attributes --queue-url "$queue_url" --attribute-names QueueArn --query 'Attributes.QueueArn' --output text)
+        echo "SQS ARN: $queue_arn"
+        echo "::set-output name=sqs_arn::$queue_arn"
+
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         IMAGE_TAG: ${{ github.sha }}
       run: |
-        # Build a docker container and
-        # push it to ECR so that it can
-        # be deployed to ECS.
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./childmanagesys
+        docker build \
+        --tag ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ github.sha }} \
+        --build-arg HOSTNAME=${{ secrets.CHILDMANAGESYS_HOSTNAME }} \
+        --build-arg USERNAME=${{ secrets.CHILDMANAGESYS_USERNAME }} \
+        --build-arg PASSWORD=${{ secrets.CHILDMANAGESYS_PASSWORD }} \
+        --build-arg DATABASE=${{ secrets.CHILDMANAGESYS_DATABASE }} \
+        --build-arg AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} \
+        --build-arg AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} \
+        --build-arg QUEUE_URL=${{ steps.get-sqs-arn.outputs.sqs_arn }} \
+        ./ChildManageSys
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
