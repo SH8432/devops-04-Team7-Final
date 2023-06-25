@@ -20,7 +20,7 @@ variable "container_name" {
 
 variable "container_port" {
   type    = number
-  default = 80
+  default = 4000
 }
 
 variable "domain" {
