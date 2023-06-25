@@ -1,6 +1,11 @@
 #ECS-cluster 생성 코드
 resource "aws_ecs_cluster" "final-project-ecs-cluster" {
   name = "final-project-cluster"
+  #Cluster에서 Container Insights CloudWatch Log 설정
+  setting {
+    name  = "containerInsights"
+    value = "enabled"
+  }
 }
 
 #ECS-service 생성 코드
