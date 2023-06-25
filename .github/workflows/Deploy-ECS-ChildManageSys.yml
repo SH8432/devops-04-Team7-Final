@@ -36,8 +36,8 @@ env:
   AWS_REGION: ap-northeast-2                  # set this to your preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: childmanagesys                 # set this to your Amazon ECR repository name
   ECR_REGISTRY: 131466135658.dkr.ecr.ap-northeast-2.amazonaws.com
-  ECS_SERVICE: final-project-was-service                 # set this to your Amazon ECS service name
-  ECS_CLUSTER: final-project-childmanagesys-cluster      # set this to your Amazon ECS cluster name
+  ECS_SERVICE: final-project-service                # set this to your Amazon ECS service name
+  ECS_CLUSTER: final-project-cluster      # set this to your Amazon ECS cluster name
   #terraform으로 ecs구축 후 task_definition의 json 파일 가져와서 수정 해야함
   ECS_TASK_DEFINITION: ./ChildManageSys/final-project-ecs-task-definition-revision31.json  # set this to the path to your Amazon ECS task definition
                                                # file, e.g. .aws/task-definition.json
