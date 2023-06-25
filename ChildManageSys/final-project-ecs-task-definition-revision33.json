@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:131466135658:task-definition/final-project-ecs-task-definition:31",
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:131466135658:task-definition/final-project-ecs-task-definition:33",
     "containerDefinitions": [
         {
             "name": "final-project-ecs-task",
-            "image": "131466135658.dkr.ecr.ap-northeast-2.amazonaws.com/childmanagesys:07b1bce5678b93a71babe8ef507888e5d443881f",
+            "image": "131466135658.dkr.ecr.ap-northeast-2.amazonaws.com/childmanagesys:200febcd8d4c25a89787ef8559584406ce8a1829",
             "cpu": 0,
             "portMappings": [
                 {
@@ -29,11 +29,26 @@
                 }
             ],
             "essential": true,
-            "environment": [],
-            "environmentFiles": [],
+            "environment": [
+                {
+                    "name": "USERNAME",
+                    "value": "peachapeach"
+                },
+                {
+                    "name": "HOSTNAME",
+                    "value": "nursery.c2fv55beafmn.ap-northeast-2.rds.amazonaws.com"
+                },
+                {
+                    "name": "PASSWORD",
+                    "value": "peachapeach1234"
+                },
+                {
+                    "name": "DATABASE",
+                    "value": "nursery"
+                }
+            ],
             "mountPoints": [],
             "volumesFrom": [],
-            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
@@ -48,7 +63,7 @@
     "family": "final-project-ecs-task-definition",
     "executionRoleArn": "arn:aws:iam::131466135658:role/ecsExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 31,
+    "revision": 33,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -87,7 +102,7 @@
     ],
     "cpu": "1024",
     "memory": "3072",
-    "registeredAt": "2023-06-25T19:57:01.081Z",
-    "registeredBy": "arn:aws:iam::131466135658:user/peachapeach",
+    "registeredAt": "2023-06-25T21:40:56.270Z",
+    "registeredBy": "arn:aws:iam::131466135658:root",
     "tags": []
 }

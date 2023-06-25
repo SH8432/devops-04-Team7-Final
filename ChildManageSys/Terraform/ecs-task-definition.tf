@@ -43,8 +43,24 @@ resource "aws_ecs_task_definition" "final-project-ecs" {
                  }
               ],
               "essential": true,
-              "environment": [],
-              "environmentFiles": [],
+              "environment": [
+                {
+                    "name": "USERNAME",
+                    "value": "peachapeach"
+                },
+                {
+                    "name": "HOSTNAME",
+                    "value": "nursery.c2fv55beafmn.ap-northeast-2.rds.amazonaws.com"
+                },
+                {
+                    "name": "PASSWORD",
+                    "value": "peachapeach1234"
+                },
+                {
+                    "name": "DATABASE",
+                    "value": "nursery"
+                }
+              ],
               "mountPoints": [],
               "volumesFrom": [],
               "ulimits": [],
