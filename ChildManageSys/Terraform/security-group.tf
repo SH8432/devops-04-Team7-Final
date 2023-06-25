@@ -117,28 +117,12 @@ resource "aws_security_group" "ecs-tasks-sg" {
   vpc_id = aws_vpc.final-project-ecs-vpc.id
   name   = "ecs-tasks-sg"
 
-  ingress {
-    protocol        = "tcp"
-    from_port       = 80
-    to_port         = 80
-    cidr_blocks     = ["0.0.0.0/0"]
-    security_groups = [aws_security_group.final-project-ecs-public-security-group.id]
-  }
-
-ingress {
-    protocol        = "tcp"
-    from_port       = 22
-    to_port         = 22
-    cidr_blocks     = ["0.0.0.0/0"]
-    security_groups = [aws_security_group.final-project-ecs-public-security-group.id]
-  }
-
 ingress {
     protocol        = "tcp"
     from_port       = 4000
     to_port         = 4000
     cidr_blocks     = ["0.0.0.0/0"]
-    security_groups = [aws_security_group.final-project-ecs-public-security-group.id]
+    security_groups = [aws_security_group.lb.id]
   }
 
   egress {
