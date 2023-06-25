@@ -39,7 +39,7 @@ env:
   ECS_SERVICE: final-project-service                # set this to your Amazon ECS service name
   ECS_CLUSTER: final-project-cluster      # set this to your Amazon ECS cluster name
   #terraform으로 ecs구축 후 task_definition의 json 파일 가져와서 수정 해야함
-  ECS_TASK_DEFINITION: ./ChildManageSys/final-project-ecs-task-definition-revision31.json  # set this to the path to your Amazon ECS task definition
+  ECS_TASK_DEFINITION: ./ChildManageSys/final-project-ecs-task-definition-revision33.json  # set this to the path to your Amazon ECS task definition
                                                # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: final-project-ecs-task          # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
