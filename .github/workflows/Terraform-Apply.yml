@@ -56,7 +56,7 @@ jobs:
         CHILDMANAGESYS_HOSTNAME: ${{ secrets.CHILDMANAGESYS_HOSTNAME }}
         CHILDMANAGESYS_DATABASE: ${{ secrets.CHILDMANAGESYS_DATABASE }}
       run: |
-        terraform apply \
+        terraform apply -auto-approve \
           -var 'db_username= ${{ env.CHILDMANAGESYS_USERNAME }}' \
           -var 'db_password= ${{ env.CHILDMANAGESYS_PASSWORD }}' \
           -var 'db_hostname= ${{ env.CHILDMANAGESYS_HOSTNAME }}' \
