@@ -8,6 +8,16 @@ variable "db_password" {
   description = "Password for the database"
 }
 
+variable "db_name" {
+  type        = string
+  description = "Name for the database"
+}
+
+variable "db_hostname" {
+  type        = string
+  description = "Hostname for the database"
+}
+
 variable "app_name" {
   type = string
   default = "final-project-service"

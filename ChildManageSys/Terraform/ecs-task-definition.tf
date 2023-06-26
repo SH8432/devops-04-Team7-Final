@@ -46,19 +46,19 @@ resource "aws_ecs_task_definition" "final-project-ecs" {
               "environment": [
                 {
                     "name": "USERNAME",
-                    "value": "peachapeach"
+                    "value": "${var.db_username}"
                 },
                 {
                     "name": "HOSTNAME",
-                    "value": "nursery.c2fv55beafmn.ap-northeast-2.rds.amazonaws.com"
+                    "value": "${var.db_hostname}"
                 },
                 {
                     "name": "PASSWORD",
-                    "value": "peachapeach1234"
+                    "value": "${var.db_password}"
                 },
                 {
                     "name": "DATABASE",
-                    "value": "nursery"
+                    "value": "${var.db_name}"
                 }
               ],
               "mountPoints": [],
