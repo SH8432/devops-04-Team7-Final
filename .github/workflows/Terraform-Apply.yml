@@ -18,13 +18,14 @@ jobs:
     defaults:
       run:
         shell: bash
+        working-directory: ChildManageSys/Terraform
 
     steps:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Change to Terraform directory
-      run: cd ChildManageSys/Terraform
+    # - name: Change to Terraform directory
+    #   run: cd ChildManageSys/Terraform
 
     - name: Check Terraform directory
       run: pwd
