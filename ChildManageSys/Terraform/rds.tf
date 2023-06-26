@@ -1,6 +1,6 @@
 ### rds ###
 resource "aws_db_instance" "mysql" {
-    identifier = var.db_database
+    identifier = "nursery"
     allocated_storage = 5
     backup_retention_period = 2
     multi_az = false
