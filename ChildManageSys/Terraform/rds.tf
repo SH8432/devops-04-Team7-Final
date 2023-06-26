@@ -1,5 +1,5 @@
 #### rds ####
-resource "aws_db_instance" "mysql" {
+resource "aws_db_instance" "nursery" {
     identifier = "nursery"
     allocated_storage = 5
     backup_retention_period = 2
