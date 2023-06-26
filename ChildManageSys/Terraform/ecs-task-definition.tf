@@ -58,7 +58,7 @@ resource "aws_ecs_task_definition" "final-project-ecs" {
                 },
                 {
                     "name": "DATABASE",
-                    "value": "${var.db_name}"
+                    "value": "${var.db_database}"
                 }
               ],
               "mountPoints": [],

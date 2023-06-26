@@ -1,13 +1,13 @@
 ### rds ###
 resource "aws_db_instance" "mysql" {
-    identifier = var.db_name
+    identifier = var.db_database
     allocated_storage = 5
     backup_retention_period = 2
     multi_az = false
     engine = "mysql"
     engine_version = "5.7"
     instance_class = "db.t2.micro"
-    db_name = var.db_name
+    db_name = var.db_database
     username = var.db_username
     password = var.db_password
     port = 3306
