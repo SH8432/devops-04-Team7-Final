@@ -1,4 +1,4 @@
-# rds
+# rds #
 resource "aws_db_instance" "mysql" {
     identifier = var.db_name
     allocated_storage = 5
