@@ -26,6 +26,9 @@ jobs:
     - name: Change to Terraform directory
       run: cd ChildManageSys/Terraform
 
+    - name: Check Terraform directory
+      run: pwd
+
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
