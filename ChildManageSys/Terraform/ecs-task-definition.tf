@@ -53,15 +53,15 @@ resource "aws_ecs_task_definition" "final-project-ecs" {
                     },
                     {
                         "name": "HOSTNAME",
-                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX: HOSTNAME::"
+                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX:HOSTNAME::"
                     },
                     {
                         "name": "PASSWORD",
-                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX: PASSWORD::"
+                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX:PASSWORD::"
                     },
                     {
                         "name": "DATABASE",
-                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX: DATABASE::"
+                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX:DATABASE::"
                     }
               ],
               "ulimits": [],
