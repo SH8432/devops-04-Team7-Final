@@ -43,26 +43,27 @@ resource "aws_ecs_task_definition" "final-project-ecs" {
                  }
               ],
               "essential": true,
-              "environment": [
-                {
-                    "name": "USERNAME",
-                    "value": "${var.db_username}"
-                },
-                {
-                    "name": "HOSTNAME",
-                    "value": "${var.db_hostname}"
-                },
-                {
-                    "name": "PASSWORD",
-                    "value": "${var.db_password}"
-                },
-                {
-                    "name": "DATABASE",
-                    "value": "${var.db_database}"
-                }
-              ],
+              "environment": [],
               "mountPoints": [],
               "volumesFrom": [],
+              "secrets": [
+                    {
+                        "name": "USERNAME",
+                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX:USERNAME::"
+                    },
+                    {
+                        "name": "HOSTNAME",
+                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX: HOSTNAME::"
+                    },
+                    {
+                        "name": "PASSWORD",
+                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX: PASSWORD::"
+                    },
+                    {
+                        "name": "DATABASE",
+                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX: DATABASE::"
+                    }
+              ],
               "ulimits": [],
               "logConfiguration": {
                   "logDriver": "awslogs",

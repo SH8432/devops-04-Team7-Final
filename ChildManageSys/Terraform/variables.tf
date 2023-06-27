@@ -1,25 +1,17 @@
 variable "db_username" {
   type        = string
   description = "Username for the database"
-  default = "username"
 }
 
 variable "db_password" {
   type        = string
   description = "Password for the database"
-  default = "password"
 }
 
 variable "db_database" {
   type        = string
   description = "Name for the database"
-  default = "name"
-}
-
-variable "db_hostname" {
-  type        = string
-  description = "Hostname for the database"
-  default = "hostname"
+  default = "nursery"
 }
 
 variable "app_name" {
