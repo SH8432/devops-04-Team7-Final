@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:131466135658:task-definition/final-project-ecs-task-definition:33",
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:131466135658:task-definition/final-project-ecs-task-definition:45",
     "containerDefinitions": [
         {
             "name": "final-project-ecs-task",
-            "image": "131466135658.dkr.ecr.ap-northeast-2.amazonaws.com/childmanagesys:200febcd8d4c25a89787ef8559584406ce8a1829",
+            "image": "131466135658.dkr.ecr.ap-northeast-2.amazonaws.com/childmanagesys:latest",
             "cpu": 0,
             "portMappings": [
                 {
@@ -29,26 +29,28 @@
                 }
             ],
             "essential": true,
-            "environment": [
+            "environment": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "secrets": [
                 {
                     "name": "USERNAME",
-                    "value": "peachapeach"
+                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX:USERNAME::"
                 },
                 {
                     "name": "HOSTNAME",
-                    "value": "nursery.c2fv55beafmn.ap-northeast-2.rds.amazonaws.com"
+                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX:HOSTNAME::"
                 },
                 {
                     "name": "PASSWORD",
-                    "value": "peachapeach1234"
+                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX:PASSWORD::"
                 },
                 {
                     "name": "DATABASE",
-                    "value": "nursery"
+                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX:DATABASE::"
                 }
             ],
-            "mountPoints": [],
-            "volumesFrom": [],
+            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
@@ -63,7 +65,7 @@
     "family": "final-project-ecs-task-definition",
     "executionRoleArn": "arn:aws:iam::131466135658:role/ecsExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 33,
+    "revision": 45,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -78,6 +80,9 @@
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "ecs.capability.secrets.asm.environment-variables"
         },
         {
             "name": "ecs.capability.execution-role-ecr-pull"
@@ -102,7 +107,7 @@
     ],
     "cpu": "1024",
     "memory": "3072",
-    "registeredAt": "2023-06-25T21:40:56.270Z",
-    "registeredBy": "arn:aws:iam::131466135658:root",
+    "registeredAt": "2023-06-27T05:41:37.003Z",
+    "registeredBy": "arn:aws:iam::131466135658:user/wendy8432",
     "tags": []
 }
