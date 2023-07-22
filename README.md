@@ -3,7 +3,7 @@
 # Architecture Diagram
 - 어린이집 입소대기 시스템과 아동 관리 시스템으로 이루어져 있으며 각 시스템을 동기화 해줄 서비스가 가운데에 위치
   
-![team7___3](https://github.com/cs-devops-bootcamp/devops-04-Final-Team7/assets/107600263/50a8f708-738f-482e-8829-1ae905b294f1)
+![249340232-50a8f708-738f-482e-8829-1ae905b294f1](https://github.com/SH8432/devops-04-Team7-Final/assets/126463365/481c3b95-2637-4eef-99de-1d28e1f19245)
 
 # Tools
 ### ✔️ OS & Editor
