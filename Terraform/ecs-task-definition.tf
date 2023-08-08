@@ -54,31 +54,31 @@ resource "aws_ecs_task_definition" "final-project-ecs" {
               "secrets": [
                     {
                         "name": "USERNAME",
-                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX:USERNAME::"
+                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:awsID:secret:ecs-dev-secretmanager-5yBYcX:USERNAME::"
                     },
                     {
                         "name": "HOSTNAME",
-                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX:HOSTNAME::"
+                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:awsID:secret:ecs-dev-secretmanager-5yBYcX:HOSTNAME::"
                     },
                     {
                         "name": "PASSWORD",
-                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX:PASSWORD::"
+                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:awsID:secret:ecs-dev-secretmanager-5yBYcX:PASSWORD::"
                     },
                     {
                         "name": "DATABASE",
-                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX:DATABASE::"
+                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:awsID:secret:ecs-dev-secretmanager-5yBYcX:DATABASE::"
                     },
                     {
                         "name": "REGION",
-                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX:REGION::"
+                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:awsID:secret:ecs-dev-secretmanager-5yBYcX:REGION::"
                     },
                     {
                         "name": "AWS_ACCESS_KEY_ID",
-                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX:AWS_ACCESS_KEY_ID::"
+                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:awsID:secret:ecs-dev-secretmanager-5yBYcX:AWS_ACCESS_KEY_ID::"
                     },
                     {
                         "name": "AWS_SECRET_ACCESS_KEY",
-                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:131466135658:secret:ecs-dev-secretmanager-5yBYcX:AWS_SECRET_ACCESS_KEY::"
+                        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:awsID:secret:ecs-dev-secretmanager-5yBYcX:AWS_SECRET_ACCESS_KEY::"
                     }
               ],
               "ulimits": [],
